@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.json({ message: 'Version: 0.0.1' });
+});
+
+router.route('/orders').get(function(req, res, next) {
+  res.json({ message: 'List containing all orders' });
 });
 
 module.exports = router;
