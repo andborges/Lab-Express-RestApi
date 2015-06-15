@@ -1,15 +1,6 @@
-var controller = {};
-
-controller.index = function(req, res, next) {
-  	res.json({ id: req.params.id });
-};
-
-controller.create = function(req, res, next) {
-	res.status(201);
-  	res.json({ id: 555, number: req.body.number, amount: req.body.amount });
-};
+var service = require('../../services/orderservice');
 
 module.exports = function(router) {
-	router.route('/order/:id').get(controller.index);
-	router.route('/order').post(controller.create);
+	router.route('/order/:id').get(service.index);
+	router.route('/order').post(service.create);
 }
